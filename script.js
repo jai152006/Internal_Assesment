@@ -161,27 +161,79 @@
     return "I am a local demo chatbot, not a live AI. Replace getLocalDemoReply() in script.js when you add a backend later. Never put API keys in this website.";
   }
 
+
+  /**
+   * Live AI chatbot: calls the Vercel backend.
+   * The API key must never be placed in this file.
+   */
   function addChatBubble(text, who) {
     if (!chatLog) {
-      return;
+      return null;
     }
+
     var bubble = document.createElement("p");
     bubble.className = "chat-bubble " + who;
     bubble.textContent = text;
     chatLog.appendChild(bubble);
     chatLog.scrollTop = chatLog.scrollHeight;
+
+    return bubble;
   }
 
   if (chatForm && chatInput) {
-    chatForm.addEventListener("submit", function (event) {
+    chatForm.addEventListener("submit", async function (event) {
       event.preventDefault();
+
       var message = chatInput.value.trim();
+
       if (!message) {
         return;
       }
+
       addChatBubble(message, "user");
       chatInput.value = "";
-      addChatBubble(getLocalDemoReply(message), "bot");
+      chatInput.disabled = true;
+
+      var sendButton = chatForm.querySelector('button[type="submit"]');
+
+      if (sendButton) {
+        sendButton.disabled = true;
+      }
+
+      var waitingBubble = addChatBubble("Thinking...", "bot");
+
+      try {
+        var response = await fetch("/api/chat", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ message: message })
+        });
+
+        var data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || "The chatbot request failed.");
+        }
+
+        if (waitingBubble) {
+          waitingBubble.textContent = data.reply;
+        }
+      } catch (error) {
+        if (waitingBubble) {
+          waitingBubble.textContent =
+            error.message ||
+            "Sorry, I couldn't connect. Please try again.";
+        }
+      } finally {
+        chatInput.disabled = false;
+
+        if (sendButton) {
+          sendButton.disabled = false;
+        }
+
+        chatInput.focus();
+      }
     });
   }
-})();
