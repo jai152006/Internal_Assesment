@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Personal portfolio of a first-year Computer Science Engineering student specializing in AI and Data Science."
+    />
+    <title>Jai Jangid | CSE Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="logo" href="#home">Jai Jangid</a>
+
+        <button
+          id="nav-toggle"
+          class="nav-toggle"
+          type="button"
+          aria-controls="primary-nav"
+          aria-expanded="false"
+          aria-label="Open menu"
+          onclick="togglePrimaryNav()"
+        >
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+        </button>
+
+        <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#chatbot">AI Chatbot</a></li>
+          </ul>
+        </nav>
+
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          type="button"
+          aria-pressed="false"
+          aria-label="Switch to dark mode"
+        >
+          <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+          <span class="theme-toggle-text">Dark</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section id="home" class="hero" aria-labelledby="home-heading">
+        <div class="container hero-grid">
+          <div>
+            <p class="eyebrow">First-Year CSE Student · AI &amp; Data Science</p>
+            <h1 id="home-heading">Hello, I am Jai Jangid</h1>
+            <p class="lead">
+              I am learning Computer Science Engineering with a focus on Artificial
+              Intelligence and Data Science. This site collects my early projects,
+              skills, and ways to get in touch.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#projects">View projects</a>
+              <a class="button button-secondary" href="#contact">Contact me</a>
+            </div>
+          </div>
+          <aside class="hero-card" aria-label="Quick profile">
+            <p><strong>Name:</strong> Jai Jangid</p>
+            <p><strong>Program:</strong> B.E. / B.Tech Computer Science Engineering</p>
+            <p><strong>Focus:</strong> Artificial Intelligence and Data Science</p>
+            <p><strong>Year:</strong> First year</p>
+            <p><strong>Location:</strong> Jaipur,Rajasthan</p>
+          </aside>
+        </div>
+      </section>
+
+      <section id="about" class="section" aria-labelledby="about-heading">
+        <div class="container">
+          <h2 id="about-heading">About Me</h2>
+          <p>
+            I am a first-year Computer Science Engineering student exploring
+            programming, problem solving, and beginner AI and data science ideas.
+            Replace this paragraph with a short introduction about yourself,
+            what you enjoy building, and what you want to learn next.
+          </p>
+          <p>
+            Interests placeholder: PYTHON, WEBDEVELOPMENT, DATA VISUALIZATION, OR MACHINE LEARNING BASICS
+          </p>
+        </div>
+      </section>
+
+      <section id="education" class="section section-alt" aria-labelledby="education-heading">
+        <div class="container">
+          <h2 id="education-heading">Education</h2>
+          <ul class="timeline">
+            <li>
+              <h3>Jecrc University</h3>
+              <p>B.E. / B.Tech in Computer Science Engineering (AI and Data Science)</p>
+              <p><time datetime="2026">2025</time> – Present · Second Year</p>
+            </li>
+            <li>
+              <h3>Tagore Vidhya bhawan</h3>
+              <p>Higher secondary education · RBSE</p>
+              <p><time datetime="2024">2023</time> – <time datetime="2026">2024</time></p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="skills" class="section" aria-labelledby="skills-heading">
+        <div class="container">
+          <h2 id="skills-heading">Skills</h2>
+          <ul class="skill-list">
+            <li>Python fundamentals</li>
+            <li>HTML, CSS, and JavaScript</li>
+            <li>Problem solving and debugging</li>
+            <li>Beginner data handling</li>
+            <li>Version control with Git (learning)</li>
+            <li>Using AI coding tools as a learning aid</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="projects" class="section section-alt" aria-labelledby="projects-heading">
+        <div class="container">
+          <h2 id="projects-heading">Projects</h2>
+          <p>
+            Search by project title, description, or technology. Replace the
+            repository and live demo placeholders with your own links when they
+            are ready.
+          </p>
+
+          <div class="search-bar">
+            <label for="project-search">Search projects</label>
+            <input
+              id="project-search"
+              type="search"
+              name="project-search"
+              placeholder="Try Python, quiz, or bug fixing"
+              autocomplete="off"
+            />
+          </div>
+
+          <p id="search-status" class="search-status" role="status" aria-live="polite"></p>
+
+          <div id="project-grid" class="project-grid">
+            <article class="project-card" data-title="Python Programs Collection" data-description="A beginner collection of Python programs covering factorial, Fibonacci sequence, and converting a structure into a dictionary." data-tech="python factorial fibonacci dictionary data structures">
+              <h3>Python Programs Collection</h3>
+              <p>
+                A beginner collection of Python programs covering factorial,
+                Fibonacci sequence, and converting a structure into a dictionary.
+              </p>
+              <p class="tech"><span>Python</span><span>Fundamentals</span></p>
+              <p class="project-links">
+                <a href="https://github.com/jai152006/Python_Program">Repository</a>
+                <a href="[ADD YOUR LIVE APP URL]">Live demo</a>
+              </p>
+            </article>
+
+            <article class="project-card" data-title="Messy Python Code Improvement" data-description="Practice cleaning messy Python code by improving naming, structure, comments, and readability." data-tech="python refactoring code quality readability">
+              <h3>Messy Python Code Improvement</h3>
+              <p>
+                Practice cleaning messy Python code by improving naming,
+                structure, comments, and readability.
+              </p>
+              <p class="tech"><span>Python</span><span>Refactoring</span></p>
+              <p class="project-links">
+                <a href="https://github.com/jai152006/Messy_Python">Repository</a>
+                <a href="[ADD YOUR LIVE APP URL]">Live demo</a>
+              </p>
+            </article>
+
+            <article class="project-card" data-title="Bug Fixing Using Cursor AI" data-description="A learning project about finding and fixing bugs with help from Cursor AI while explaining each change." data-tech="debugging cursor ai python javascript">
+              <h3>Bug Fixing Using Cursor AI</h3>
+              <p>
+                A learning project about finding and fixing bugs with help from
+                Cursor AI while explaining each change.
+              </p>
+              <p class="tech"><span>Debugging</span><span>Cursor AI</span></p>
+              <p class="project-links">
+                <a href="https://github.com/jai152006/Bug_Fixing">Repository</a>
+                <a href="[ADD YOUR LIVE APP URL]">Live demo</a>
+              </p>
+            </article>
+
+            <article class="project-card" data-title="Interactive Quiz Application" data-description="A browser quiz with questions, score tracking, and instant feedback for each answer." data-tech="html css javascript quiz frontend">
+              <h3>Interactive Quiz Application</h3>
+              <p>
+                A browser quiz with questions, score tracking, and instant
+                feedback for each answer.
+              </p>
+              <p class="tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></p>
+              <p class="project-links">
+                <a href="https://github.com/jai152006/Quiz_application" target="_blank" rel="noopener noreferrer">Repository</a>
+                <a href="[ADD YOUR LIVE APP URL]">Live demo</a>
+              </p>
+            </article>
+
+            <article class="project-card" data-title="Book Reading List Application" data-description="A simple reading list app for adding books, marking progress, and keeping notes on what to read next." data-tech="html css javascript books reading list">
+              <h3>Book Reading List Application</h3>
+              <p>
+                A simple reading list app for adding books, marking progress, and
+                keeping notes on what to read next.
+              </p>
+              <p class="tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></p>
+              <p class="project-links">
+                <a href="https://github.com/jai152006/Book_reading_list">Repository</a>
+                <a href="[ADD YOUR LIVE APP URL]">Live demo</a>
+              </p>
+            </article>
+          </div>
+
+          <p id="no-results" class="empty-state" hidden>
+            No projects match that search. Try another title, description word,
+            or technology such as Python or JavaScript.
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" class="section" aria-labelledby="contact-heading">
+        <div class="container">
+          <h2 id="contact-heading">Contact</h2>
+          <p>Replace the placeholders below with your real contact details.</p>
+          <address class="contact-card">
+            <p>Email: <a href="mailto:[YOUR EMAIL ADDRESS]">[YOUR EMAIL ADDRESS]</a></p>
+            <p>Phone: <a href="tel:[YOUR PHONE NUMBER]">[YOUR PHONE NUMBER]</a></p>
+            <p>LinkedIn: <a href="[ADD YOUR LINKEDIN URL]">[ADD YOUR LINKEDIN URL]</a></p>
+            <p>GitHub: <a href="https://github.com/jai152006" target="_blank" rel="noopener noreferrer">github.com/jai152006</a></p>
+          </address>
+        </div>
+      </section>
+
+      <section id="chatbot" class="section section-alt" aria-labelledby="chatbot-heading">
+        <div class="container">
+          <h2 id="chatbot-heading">AI Chatbot Interface</h2>
+          <p class="chatbot-note">
+            This is a local demo interface only. It is not connected to an AI
+            API yet. Later, you can replace the local reply function in
+            <code>script.js</code> with a backend request. Do not put API keys
+            in this website.
+          </p>
+
+          <div class="chatbot" aria-label="Demo chatbot">
+            <div id="chat-log" class="chat-log" role="log" aria-live="polite" aria-relevant="additions">
+              <p class="chat-bubble bot">
+                Hello. I am a local demo chatbot, not a live AI service. Ask
+                about this portfolio, and I will reply with a preset message.
+              </p>
+            </div>
+            <form id="chat-form" class="chat-form">
+              <label for="chat-input">Message</label>
+              <div class="chat-row">
+                <input
+                  id="chat-input"
+                  type="text"
+                  name="message"
+                  autocomplete="off"
+                  placeholder="Type a question about this site"
+                />
+                <button class="button button-primary" type="submit">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; <span id="year"></span> [YOUR FULL NAME]. Built as a beginner CSE portfolio.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
