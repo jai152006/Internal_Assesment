@@ -1,7 +1,9 @@
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+    return res.status(405).json({
+      error: "Method not allowed"
+    });
   }
 
   const apiKey = process.env.GROQ_API_KEY;
@@ -15,7 +17,7 @@ export default async function handler(req, res) {
   try {
     const { message } = req.body || {};
 
-    if (!message || typeof message !== "string") {
+    if (typeof message !== "string" || !message.trim()) {
       return res.status(400).json({
         error: "Please enter a message."
       });
@@ -30,19 +32,19 @@ export default async function handler(req, res) {
           Authorization: `Bearer ${apiKey}`
         },
         body: JSON.stringify({
-          model: "llama-3.3-70b-versatile",
+          model: "openai/gpt-oss-20b",
           messages: [
             {
               role: "system",
               content:
-                "You are the AI assistant on Jai Jangid's CSE portfolio website. Be helpful, friendly, and concise. Answer questions about the portfolio when possible."
+                "You are the AI assistant on Jai Jangid's CSE portfolio website. Be helpful, friendly, and concise. Answer questions about the portfolio when possible. Do not invent personal details or projects."
             },
             {
               role: "user",
-              content: message
+              content: message.trim()
             }
           ],
-          max_tokens: 500
+          max_completion_tokens: 500
         })
       }
     );
@@ -50,9 +52,16 @@ export default async function handler(req, res) {
     const data = await groqResponse.json();
 
     if (!groqResponse.ok) {
-      console.error("Groq API error:", data);
+      console.error(
+        "Groq API error:",
+        groqResponse.status,
+        data
+      );
+
       return res.status(502).json({
-        error: "Groq could not answer. Check the API configuration and model."
+        error:
+          data.error?.message ||
+          `Groq API request failed with status ${groqResponse.status}.`
       });
     }
 
@@ -63,9 +72,11 @@ export default async function handler(req, res) {
     });
   } catch (error) {
     console.error("Chat API error:", error);
+
     return res.status(500).json({
       error: "The chatbot server encountered an error."
     });
   }
 }
+
 
